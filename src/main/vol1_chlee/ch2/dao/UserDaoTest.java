@@ -24,7 +24,7 @@ public class UserDaoTest {
         System.out.println("setUp() :" + this);
 
         DataSource dataSource = new SingleConnectionDataSource(
-                "jdbc:mariadb://localhost:3307/toby?characterEncoding=UTF-8",
+                "jdbc:mariadb://localhost:3307/toby_study?characterEncoding=UTF-8",
                 "root",
                 "1234",
                 true
