@@ -65,5 +65,22 @@ public class UserDao {
         con.close();
     }
 
+    // 테이블 정보 개수 조회
+    public int getCount() throws SQLException {
+        Connection con = dataSource.getConnection();
+
+        String sql = "SELECT COUNT(*) FROM users";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        rs.next();
+        int result = rs.getInt(1);
+
+        rs.close();
+        pst.close();
+        con.close();
+
+        return result;
+    }
+
 
 }
