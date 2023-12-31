@@ -1,6 +1,6 @@
 package main.vol1_chlee.ch2.dao;
 
-import main.vol1_chlee.ch1.domain.User;
+import main.vol1_chlee.ch2.domain.User;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
