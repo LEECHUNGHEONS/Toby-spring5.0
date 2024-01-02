@@ -10,11 +10,20 @@ import javax.sql.DataSource;
 @Configuration
 public class DaoFactory {
 
+    @Bean
     public UserDao userDao() {
         ConnectionMaker connectionMaker = new DConnectionMaker();
         UserDao userDao = new UserDao(connectionMaker);
         return userDao;
     }
+
+    @Bean
+    public ConnectionMaker connectionMaker() {
+        ConnectionMaker connectionMaker = new DConnectionMaker();
+        return connectionMaker;
+    }
+
+
 
 //    @Bean
 //    public UserDao userDao(){

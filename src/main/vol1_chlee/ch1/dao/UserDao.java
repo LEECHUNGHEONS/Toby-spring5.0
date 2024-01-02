@@ -1,6 +1,7 @@
 package main.vol1_chlee.ch1.dao;
 
 import main.vol1_chlee.ch1.domain.User;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -10,7 +11,13 @@ public class UserDao {
     private ConnectionMaker connectionMaker;
 
     public UserDao(ConnectionMaker connectionMaker) {
-        this.connectionMaker = connectionMaker;
+        DaoFactory daoFactory = new DaoFactory();
+        this.connectionMaker = daoFactory.connectionMaker();
+    }
+
+    public UserDao () {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class);
+        this.connectionMaker = context.getBean("connectionMaker", ConnectionMaker.class);
     }
 //
 //    //== DataSource 사용하기 ==//
