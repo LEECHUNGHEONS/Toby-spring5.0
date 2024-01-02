@@ -13,8 +13,12 @@ public class UserDaoTest {
 
 //        ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
 //        UserDao dao = context.getBean("userDao", UserDao.class);
+//        ConnectionMaker connectionMaker = new DConnectionMaker();
+//
+//        UserDao dao = new UserDao(connectionMaker);
 
-        UserDao dao = new UserDao();
+        UserDao dao = new DaoFactory().userDao();
+
 
         User user = new User();
         user.setId("chlee123");

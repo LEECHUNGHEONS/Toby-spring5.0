@@ -6,6 +6,12 @@ import javax.sql.DataSource;
 import java.sql.*;
 
 public class UserDao {
+
+    private ConnectionMaker connectionMaker;
+
+    public UserDao(ConnectionMaker connectionMaker) {
+        this.connectionMaker = connectionMaker;
+    }
 //
 //    //== DataSource 사용하기 ==//
 //    private DataSource dataSource;
