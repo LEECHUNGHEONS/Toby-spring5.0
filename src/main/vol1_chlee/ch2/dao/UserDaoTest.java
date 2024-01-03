@@ -1,19 +1,20 @@
 package main.vol1_chlee.ch2.dao;
 
 import main.vol1_chlee.ch2.domain.User;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.springframework.test.annotation.DirtiesContext;
-
-import javax.sql.DataSource;
-import java.sql.SQLException;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class UserDaoTest {
 
     private UserDao dao;
@@ -82,6 +83,7 @@ public class UserDaoTest {
     }
 
     // 이것은 잘못된 회원 유저를 가져오면 예외를 던져줘야 성공하는 테스트
+
     @Test
     public void getUserFailure() throws SQLException{
         System.out.println("getUserFailure(): " + this);
@@ -89,6 +91,8 @@ public class UserDaoTest {
         assertEquals(dao.getCount(), 0);
 
         assertThrows(EmptyResultDataAccessException.class, () -> {dao.get("unknown_id");});
+
+
     }
 
 }
