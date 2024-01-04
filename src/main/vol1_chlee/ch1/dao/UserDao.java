@@ -30,7 +30,7 @@ public class UserDao {
     public void add(User user) throws ClassNotFoundException, SQLException{
         Connection con =  getConnection();
 
-        //프리페어 스테이트먼츠 사용!
+        //프리페어 스테이트먼츠 사용
         String sql = "INSERT INTO users(id, name, password) values(?,?,?)";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, user.getId());
