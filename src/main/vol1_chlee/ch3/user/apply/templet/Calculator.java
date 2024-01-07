@@ -1,7 +1,5 @@
 package main.vol1_chlee.ch3.user.apply.templet;
 
-import main.vol1_chlee.ch3.user.dao.LineCallback;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
