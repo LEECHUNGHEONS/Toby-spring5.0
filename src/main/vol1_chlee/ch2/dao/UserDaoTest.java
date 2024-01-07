@@ -65,9 +65,9 @@ public class UserDaoTest {
     @Test
     public void count() throws ClassNotFoundException, SQLException{
         System.out.println("count(): " + this);
-        User user1 = new User("user1", "one", "1111");
-        User user2 = new User("user2", "two", "2222");
-        User user3 = new User("user3", "three", "3333");
+        User user1 = new User("user1", "chlee", "1234");
+        User user2 = new User("user2", "tobyjjang", "0987");
+        User user3 = new User("user3", "greenday", "4321");
 
         dao.deleteAll();
         assertEquals(dao.getCount(), 0);
