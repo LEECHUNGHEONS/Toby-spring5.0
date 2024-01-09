@@ -9,7 +9,7 @@ public class UserDaoConnectionCountingTest {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
-        // 앞에서 main() 메소드와 같을 경우 DL로 객체를 주입 받음!
+        // 앞에서 main() 메소드와 같을 경우 DL로 객체를 주입 받음.
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CountingDaoFactory.class);
         UserDao dao = context.getBean("userDao", UserDao.class);
 
