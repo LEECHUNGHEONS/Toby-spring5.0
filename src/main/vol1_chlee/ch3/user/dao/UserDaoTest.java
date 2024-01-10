@@ -35,7 +35,7 @@ public class UserDaoTest {
 
 
         DataSource dataSource = new SingleConnectionDataSource(
-                "jdbc:mariadb://localhost:3306/toby?characterEncoding=UTF-8",
+                "jdbc:mariadb://localhost:3307/toby_study?characterEncoding=UTF-8",
                 "root",
                 "1234",
                 true);
@@ -107,7 +107,7 @@ public class UserDaoTest {
     public void getAll() throws ClassNotFoundException, SQLException{
         dao.deleteAll();
 
-        //== 네거티브 테스트, DB에 데이터가 하나도 없을 경우 ==//
+        // 네거티브 테스트, DB에 아무런 정보가 없을 때
         dao.add(user1);
         List<User> users1 = dao.getAll();
         assertEquals(users1.size(), 1);
