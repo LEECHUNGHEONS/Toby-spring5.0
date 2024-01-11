@@ -1,7 +1,5 @@
 package main.vol1_chlee.ch4.lch.dao;
 
-import main.vol1_chlee.ch3.user.dao.StatementStrategy;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

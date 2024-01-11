@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = DaoFactory.class)
-public class UserDaoTest {
+public class UserDaoJdbcTest {
 
     @Autowired
     private UserDaoJdbc dao;
@@ -47,6 +47,7 @@ public class UserDaoTest {
                 "root",
                 "1234",
                 true);
+
         dao = new UserDaoJdbc();
         dao.setDataSource(dataSource);
 
@@ -56,7 +57,7 @@ public class UserDaoTest {
     }
 
     @Test
-    public void addAndGet() throws ClassNotFoundException, SQLException {
+    public void addAndGet() throws ClassNotFoundException,SQLException{
         System.out.println("addAndGet(): " + this);
         dao.deleteAll();
         assertEquals(dao.getCount(), 0);
