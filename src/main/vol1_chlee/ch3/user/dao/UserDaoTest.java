@@ -107,7 +107,7 @@ public class UserDaoTest {
     public void getAll() throws ClassNotFoundException, SQLException{
         dao.deleteAll();
 
-        // 네거티브 테스트, DB에 아무런 정보가 없을 때
+        // 네거티브 테스트, DB에 아무런 정보가 없을 때 검증 코드가 추가됐다
         dao.add(user1);
         List<User> users1 = dao.getAll();
         assertEquals(users1.size(), 1);

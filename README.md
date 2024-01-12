@@ -1,4 +1,4 @@
-# ✍️toby_spring study ✍
+# 🏃Toby_Spring Study Rearrange📑
 
 토비의 스프링 책을 따라가며 Spring Framework에 대해 학습했습니다.
 

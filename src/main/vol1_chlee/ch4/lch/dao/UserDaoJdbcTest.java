@@ -57,7 +57,7 @@ public class UserDaoJdbcTest {
     }
 
     @Test
-    public void addAndGet() throws ClassNotFoundException,SQLException{
+    public void addAndGet() {
         System.out.println("addAndGet(): " + this);
         dao.deleteAll();
         assertEquals(dao.getCount(), 0);
@@ -85,7 +85,7 @@ public class UserDaoJdbcTest {
     }
 
     @Test
-    public void count() throws ClassNotFoundException, SQLException {
+    public void count() {
         System.out.println("count(): " + this);
 
         dao.deleteAll();
@@ -102,7 +102,7 @@ public class UserDaoJdbcTest {
     }
 
     @Test
-    public void getUserFailure() throws SQLException{
+    public void getUserFailure() {
         System.out.println("getUserFailure(): " + this);
         dao.deleteAll();
         assertEquals(dao.getCount(), 0);
@@ -113,7 +113,7 @@ public class UserDaoJdbcTest {
     }
 
     @Test
-    public void getAll() throws ClassNotFoundException, SQLException{
+    public void getAll() {
         dao.deleteAll();
 
         // 네거티브 테스트, DB에 아무런 정보가 없을 때
