@@ -1,14 +1,15 @@
-package main.vol1_chlee.ch5.lch.dao;
+package main.vol1_chlee.ch5.lch.service;
 
-
+import main.vol1_chlee.ch5.lch.dao.UserDaoJdbc;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
 
 @Configuration
-public class DaoFactory {
+public class TestServiceFactory {
 
     @Bean
     public UserDaoJdbc userDao(){
@@ -16,8 +17,6 @@ public class DaoFactory {
         userDao.setDataSource(dataSource());
         return userDao;
     }
-
-
 
 
     @Bean
@@ -34,4 +33,5 @@ public class DaoFactory {
         return dataSource;
 
     }
+
 }

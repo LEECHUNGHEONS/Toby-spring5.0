@@ -1,6 +1,6 @@
 package main.vol1_chlee.ch5.lch.dao;
 
-import main.vol1_chlee.ch4.lch.domain.User;
+import main.vol1_chlee.ch5.lch.domain.User;
 
 import java.util.List;
 import java.util.Optional;
