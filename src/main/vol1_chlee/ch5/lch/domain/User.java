@@ -23,6 +23,17 @@ public class User {
         this.email = email;
     }
 
+    
+    //업그레이드 로직
+    public void upgradeLevel() {
+        Level nextLevel = this.level.nextLevel();
+        if(nextLevel != null) {
+            this.level = nextLevel;
+        } else {
+            throw new IllegalStateException(this.level + "은 업그레이드가 불가능합니다");
+        }
+    }
+
 
 
     public String getId() {
