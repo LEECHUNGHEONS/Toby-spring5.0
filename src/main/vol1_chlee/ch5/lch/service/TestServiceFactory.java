@@ -34,4 +34,28 @@ public class TestServiceFactory {
 
     }
 
+    @Bean
+    public DataSourceTransactionManager transactionManager() {
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(dataSource());
+        return transactionManager;
+    }
+
+
+    @Bean
+    public UserService userService() {
+        UserService userService = new UserService();
+        userService.setUserDao(userDao());
+        userService.setUserLevelUpgradePolicy(userLevelUpgradePolicy());
+        userService.setTransactionManager(transactionManager());
+        return userService;
+    }
+
+    @Bean
+    public UserLevelUpgradePolicy userLevelUpgradePolicy() {
+        UserLevelUpgradeImpl userLevelUpgradePolicy = new UserLevelUpgradeImpl();
+        userLevelUpgradePolicy.setMailSender(new DummyMailSender());
+        return userLevelUpgradePolicy;
+    }
+
 }
