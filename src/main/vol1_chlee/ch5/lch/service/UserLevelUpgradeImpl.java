@@ -40,14 +40,13 @@ public class UserLevelUpgradeImpl implements UserLevelUpgradePolicy {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
 
         mailMessage.setTo(user.getEmail());
-        mailMessage.setFrom("yy8775799@gmail.com");
+        mailMessage.setFrom("lchcompanylch.com");
         mailMessage.setSubject("Upgrade 안내");
-        mailMessage.setText("사용자님의 등급이 "+ user.getLevel().name() + "로 업그레이드 되셨습니다 축하드립니다.");
+        mailMessage.setText("사용자님의 등급이 "+ user.getLevel().name() +"로 업그레이드 되셨습니다. 축하드립니다.");
 
         this.mailSender.send(mailMessage);
 
     }
-
 
 
 }

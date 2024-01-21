@@ -20,7 +20,7 @@ public class UserDaoJdbc implements UserDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    // rowMapper 객체를 생성하기 위한 메소드
+    // rowMapper 객체를 생성하기 위한 람다로 정의한 메소드
     private RowMapper<User> userRowMapper() {
         return ((rs, rowNum) -> {
             User user = new User();
@@ -30,6 +30,7 @@ public class UserDaoJdbc implements UserDao {
             user.setLevel(Level.valueOf(rs.getInt("level")));
             user.setLogin(rs.getInt("login"));
             user.setRecommend(rs.getInt("recommend"));
+            user.setEamil(rs.getString("email"));
             return user;
         });
     }
@@ -77,7 +78,7 @@ public class UserDaoJdbc implements UserDao {
 
     //테이블에 있는 모든 user 데이터 가져오기
     public List<User> getAll() {
-        String sql = "SELECT * FROM users ORDER BY id DESC";
+        String sql = "SELECT * FROM users ";
 
         return this.jdbcTemplate.query(sql,userRowMapper());
     }
