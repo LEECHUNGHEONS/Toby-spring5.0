@@ -8,6 +8,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
 
+//빈 설정 정보 클래스
 @Configuration
 public class TestServiceFactory {
 

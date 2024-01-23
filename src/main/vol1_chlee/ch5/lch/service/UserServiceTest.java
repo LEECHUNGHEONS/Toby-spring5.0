@@ -23,6 +23,7 @@ import javax.mail.internet.MimeUtility;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
+
 import static main.vol1_chlee.ch5.lch.service.UserLevelUpgradeImpl.MIN_LOGCOUNT_FOR_SILVER;
 import static main.vol1_chlee.ch5.lch.service.UserLevelUpgradeImpl.MIN_RECOMMEND_FOR_GOLD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
