@@ -111,15 +111,15 @@ public class UserDaoJdbcTest {
         dao.add(user2);
         List<User> users2 = dao.getAll();
         assertEquals(users2.size(), 2);
-        checkSameUser(user2, users2.get(0));
-        checkSameUser(user1, users2.get(1));
+        checkSameUser(user2, users2.get(1));
+        checkSameUser(user1, users2.get(0));
 
         dao.add(user3);
         List<User> users3 = dao.getAll();
         assertEquals(users3.size(), 3);
-        checkSameUser(user3, users3.get(0));
+        checkSameUser(user3, users3.get(2));
         checkSameUser(user2, users3.get(1));
-        checkSameUser(user1, users3.get(2));
+        checkSameUser(user1, users3.get(0));
 
     }
 
