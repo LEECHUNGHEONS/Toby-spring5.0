@@ -59,7 +59,7 @@ public class UserDaoJdbc implements UserDao {
         }
     }
 
-    // 테이블 모든 걸 삭제!!!!
+    // 테이블 모든 걸 삭제!
     public void deleteAll()  {
         String sql = "DELETE FROM users";
         // 콜백을 jdbc 내장함수가 해줌
