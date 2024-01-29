@@ -19,7 +19,7 @@ public class UserDaoJdbc implements UserDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    // rowMapper 객체를 생성하기 위한 람다로 정의한 메소드
+    // rowMapper 객체를 생성하기 위한 람다로 정의한 메소드~
     private RowMapper<User> userRowMapper() {
         return ((rs, rowNum) -> {
             User user = new User();
