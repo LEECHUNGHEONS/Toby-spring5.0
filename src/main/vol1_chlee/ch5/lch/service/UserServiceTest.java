@@ -190,20 +190,20 @@ public class UserServiceTest {
 
     @Test
     public void sendEmailToGmail() throws UnsupportedEncodingException {
-        String host = "yy8775799.gmail.com";
-        int port = 579;
-        String username = "user4"; // 메일을 전송할 아이디
-        String password = "p4"; // 비밀번호
+        String host = "smtp.gmail.com";
+        int port = 587;
+        String username = "yy8775799@gmail.com";
+        String password = "fryo rhef fzdp ktev";
 
         // 수진자 이메일 주소
         String toAddress = "yy8775799@gmail.com";
 
         // 메일 속성 설정
         Properties props = new Properties();
-        props.put("mail.yy8775799.auth", "true");
-        props.put("mail.yy8775799.starttls.enable", "true");
-        props.put("mail.yy8775799.host", host);
-        props.put("mail.yy8775799.prot", port);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.prot", port);
 
         // 인증 객체 생성
         Authenticator authenticator = new Authenticator() {
@@ -214,11 +214,10 @@ public class UserServiceTest {
 
         // 세션 생성
         Session session = Session.getInstance(props, authenticator);
-
         try {
             MimeMessage message = new MimeMessage(session);
 
-            message.setFrom(new InternetAddress(toAddress));
+            message.setFrom(new InternetAddress(username));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(username));
             message.setSubject(MimeUtility.encodeText("업그레이드 안내", "UTF-8", "B"));
             message.setText("사용자의 등급 안내 테스트", "UTF-8");
