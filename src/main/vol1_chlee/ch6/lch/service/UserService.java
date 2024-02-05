@@ -1,4 +1,6 @@
-package main.vol1_chlee.ch6.lch.domain;
+package main.vol1_chlee.ch6.lch.service;
+
+import main.vol1_chlee.ch6.lch.domain.User;
 
 public interface UserService {
 // 트랜잭션과 비즈니스 로직을 분리하기 위한 메소드와 인터페이스!
