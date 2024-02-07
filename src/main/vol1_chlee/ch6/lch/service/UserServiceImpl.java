@@ -22,8 +22,8 @@ public class UserServiceImpl implements UserService{
     }
 
 
-    public void setMailSender(MailSender dummyMailSender) {
-        this.mailSender = dummyMailSender;
+    public void setMailSender(MailSender mailSender) {
+        this.mailSender = mailSender;
     }
 
 
