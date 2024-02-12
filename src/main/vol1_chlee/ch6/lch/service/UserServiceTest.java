@@ -298,7 +298,7 @@ public class UserServiceTest {
 
             System.out.println("이메일 전송이 성공입니다!");
         } catch (Exception e) {
-            System.out.println("이메일 전송 실패. 실패 원인 ! : " + e.getMessage());
+            System.out.println("이메일 전송 실패. 실패 원인 !! : " + e.getMessage());
 //			fail("This sendEmailToFmail test is failed!!");
         }
     }
