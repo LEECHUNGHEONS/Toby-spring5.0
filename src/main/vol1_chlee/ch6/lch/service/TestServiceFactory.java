@@ -34,8 +34,8 @@ public class TestServiceFactory {
         dataSource.setUsername(username);
         dataSource.setPassword(password);
         return dataSource;
-    }
 
+    }
     @Bean
     public DataSourceTransactionManager transactionManager() {
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
@@ -48,6 +48,80 @@ public class TestServiceFactory {
         DummyMailSender dummyMailSender = new DummyMailSender();
         return dummyMailSender;
     }
+
+    @Bean
+    public TransactionAdvice transactionAdvice() {
+        TransactionAdvice advice = new TransactionAdvice();
+        advice.setTransactionManager(transactionManager());
+        return advice;
+    }
+
+    @Bean
+    public NameMatchMethodPointcut transactionPointcut() {
+//		NameMatchClassMethodPointcut pointcut = new NameMatchClassMethodPointcut();
+//		//pointcut.setMappedClassName("*Service");
+//		pointcut.setMappedName("upgrade*");
+
+        NameMatchMethodPointcut pointcut = new NameMatchMethodPointcut();
+        pointcut.setMappedName("upgrade*");
+        return pointcut;
+    }
+
+    @Bean
+    public NameMatchClassMethodPointcut transactionClassPointcut() {
+        NameMatchClassMethodPointcut pointcut = new NameMatchClassMethodPointcut();
+        pointcut.setMappedClassName("*ServiceImpl");
+        pointcut.setMappedName("upgrade*");
+        return pointcut;
+
+    }
+
+    @Bean
+    public DefaultPointcutAdvisor transactionAdvisor() {
+        DefaultPointcutAdvisor advisor = new DefaultPointcutAdvisor();
+        advisor.setAdvice(transactionAdvice());
+        advisor.setPointcut(transactionClassPointcut());
+        return advisor;
+    }
+
+    @Bean
+    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
+        return new DefaultAdvisorAutoProxyCreator();
+    }
+
+    @Bean
+    public UserService userService() {
+        UserServiceImpl userServiceImpl = new UserServiceImpl();
+        userServiceImpl.setUserDao(userDao());
+        userServiceImpl.setMailSender(mailSender());
+        return userServiceImpl;
+    }
+
+    @Bean
+    public UserService userServiceImpl() {
+        UserServiceImpl userServiceImpl = new UserServiceImpl();
+        userServiceImpl.setUserDao(userDao());
+        userServiceImpl.setMailSender(mailSender());
+        return userServiceImpl;
+    }
+
+    @Bean
+    public UserService testUserService() {
+        TestUserServiceImpl testuserServiceImpl = new TestUserServiceImpl();
+        testuserServiceImpl.setUserDao(userDao());
+        testuserServiceImpl.setMailSender(mailSender());
+        return testuserServiceImpl;
+    }
+
+    //==  UserServiceTest 클래스 내의 static 클래스로 정의되었다면 아래와 같이 정의해야 한다 ==//
+//	@Bean
+//	@Qualifier("testUserService")
+//	public UserServiceImpl testUserService() {
+//	    UserServiceImpl testUserServiceImpl = new UserServiceTest.TestUserServiceImpl();
+//	    testUserServiceImpl.setUserDao(userDao());
+//	    testUserServiceImpl.setMailSender(mailSender());
+//	    return testUserServiceImpl;
+//	}
 
 
 }
