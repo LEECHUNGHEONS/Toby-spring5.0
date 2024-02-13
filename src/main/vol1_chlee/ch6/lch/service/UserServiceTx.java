@@ -18,7 +18,7 @@ public class UserServiceTx implements UserService{
         this.transactionManager = transactionManager;
     }
 
-    //Di 받은 구현체 UserService에게 비즈니스 로직 위임 
+    //Di 받은 구현체 UserService에게 비즈니스 로직 위임.
     @Override
     public void add(User user) {
         userService.add(user);
