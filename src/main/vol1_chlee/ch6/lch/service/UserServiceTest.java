@@ -262,7 +262,7 @@ public class UserServiceTest {
         String host = "smtp.gmail.com";
         int port = 587;
         String username = "yy8775799@gmail.com";
-        String password = "fryo rhef fzdp ktev";
+        String password = "fryo rhef fzdp ktev"; //구글계정 보안-> 2단계 인증에서 앱 비밀번호
 
         // 수진자 이메일 주소
         String toAddress = "yy8775799@gmail.com";
