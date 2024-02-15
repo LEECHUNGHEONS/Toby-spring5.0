@@ -119,7 +119,7 @@ public class UserServiceTest {
 
     }
 
-    //== upgradeLevels() 테스트에 사용될 MailSender Mock 객체 ==//
+    // upgradeLevels() 테스트에 사용될 MailSender Mock 객체
     static class MockMailSender implements MailSender {
         private List<String> requests = new ArrayList<String>();
 
@@ -135,7 +135,7 @@ public class UserServiceTest {
         }
     }
 
-    //== upgradeLevels() 테스트에 사용될 UserDao Mock 객체 ==//
+    //upgradeLevels() 테스트에 사용되어지는 UserDao Mock 객체
     static class MockUserDao implements UserDao {
         //업그레이드 후보와 업그레이드 된 결과를 저장할 변수
         private List<User> users;
@@ -150,12 +150,10 @@ public class UserServiceTest {
             return this.updated;
         }
 
-        //== 스텁 기능 제공 ==//
         public List<User> getAll(){
             return this.users;
         }
 
-        //== Mock Oject 기능 제공 ==//
         public void update(User user) {
             updated.add(user);
         }
