@@ -1,4 +1,4 @@
-package main.vol1_chlee.ch7.service;
+package main.vol1_chlee.ch7.lch.service;
 
 import org.springframework.mail.MailException;
 import org.springframework.mail.MailSender;

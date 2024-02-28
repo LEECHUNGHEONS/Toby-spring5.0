@@ -1,6 +1,6 @@
-package main.vol1_chlee.ch7.domain;
+package main.vol1_chlee.ch7.lch.domain;
 
-import main.vol1_chlee.ch7.dao.DaoFactory;
+import main.vol1_chlee.ch7.lch.dao.DaoFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

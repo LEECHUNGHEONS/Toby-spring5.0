@@ -1,4 +1,4 @@
-package main.vol1_chlee.ch7.dao;
+package main.vol1_chlee.ch7.lch.dao;
 
 
 import main.vol1_chlee.ch5.lch.dao.UserDaoJdbc;

@@ -1,4 +1,4 @@
-package main.vol1_chlee.ch7.domain;
+package main.vol1_chlee.ch7.lch.domain;
 
 public enum Level {
 	GOLD(3, null), SILVER(2, GOLD), BASIC(1, SILVER);

@@ -1,4 +1,4 @@
-package main.vol1_chlee.ch7.sqlservice.exception;
+package main.vol1_chlee.ch7.lch.sqlservice.exception;
 
 public class SqlRetrievalFailureException extends RuntimeException {
 	public SqlRetrievalFailureException() {

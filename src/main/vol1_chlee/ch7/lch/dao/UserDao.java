@@ -1,7 +1,7 @@
-package main.vol1_chlee.ch7.dao;
+package main.vol1_chlee.ch7.lch.dao;
 
 
-import main.vol1_chlee.ch7.domain.User;
+import main.vol1_chlee.ch7.lch.domain.User;
 
 import java.util.List;
 import java.util.Optional;

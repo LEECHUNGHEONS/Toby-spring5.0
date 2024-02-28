@@ -1,8 +1,8 @@
-package main.vol1_chlee.ch7.service;
+package main.vol1_chlee.ch7.lch.service;
 
-import main.vol1_chlee.ch7.dao.UserDao;
-import main.vol1_chlee.ch7.domain.Level;
-import main.vol1_chlee.ch7.domain.User;
+import main.vol1_chlee.ch7.lch.dao.UserDao;
+import main.vol1_chlee.ch7.lch.domain.Level;
+import main.vol1_chlee.ch7.lch.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;

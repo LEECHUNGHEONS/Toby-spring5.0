@@ -1,4 +1,4 @@
-package main.vol1_chlee.ch7.domain;
+package main.vol1_chlee.ch7.lch.domain;
 
 public class User {
 	String id;
