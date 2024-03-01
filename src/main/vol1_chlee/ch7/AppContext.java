@@ -24,13 +24,13 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 @ComponentScan(basePackages = "main.vol1_chlee.ch7.lch")
 @EnableSqlService
-@PropertySource("classpath:/main/vol1_chlee/ch7/database.properties")
+@PropertySource("file:E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/database.properties")
 public class AppContext implements SqlMapConfig{
-	@Value("org.mairiadb.jdbc.Driver") Class<? extends Driver> driverClass;
-	@Value("jdbc:mariadb://localhost:3307/toby_study?characterEncoding=UTF-8")String url;
-	@Value("root") String username;
-	@Value("$1234") String password;
-	
+	@Value("${db.driverClass}") Class<? extends Driver> driverClass;
+	@Value("${db.url}") String url;
+	@Value("${db.username}") String username;
+	@Value("${db.password}") String password;
+
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();
