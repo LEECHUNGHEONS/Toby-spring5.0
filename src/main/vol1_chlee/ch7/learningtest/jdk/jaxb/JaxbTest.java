@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,9 +28,10 @@ public class JaxbTest {
 		Unmarshaller unmarshaller = context.createUnmarshaller();
 		
 		// xml 파일을 읽어서 언마샬을 진행하면 매핑된 오브젝트를 리턴한다
-		Sqlmap sqlmap = (Sqlmap) unmarshaller.unmarshal(
-				getClass().getResourceAsStream("sqlmap.xml"));
-		
+		String path = "E:\\development2\\Toby-spring5.0\\src\\main\\vol1_chlee\\ch7\\learningtest\\jdk\\jaxb\\sqlmap.xml";
+		FileReader reader = new FileReader(path);
+		Sqlmap sqlmap = (Sqlmap) unmarshaller.unmarshal(reader);
+
 		List<SqlType> sqlList = sqlmap.getSql();
 		
 		//assertEquals(sqlList.size(), 6);
