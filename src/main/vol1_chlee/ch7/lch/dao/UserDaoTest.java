@@ -28,9 +28,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ActiveProfiles("test")
 public class UserDaoTest {
 
-	InputStream inputStream = getClass().getClassLoader().getResourceAsStream("main/vol1_chlee/ch7/database.properties");
-
-
 	@Autowired UserDao dao; 
 	@Autowired DataSource dataSource;
 	

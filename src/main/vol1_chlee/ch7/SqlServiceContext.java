@@ -38,7 +38,7 @@ public class SqlServiceContext {
     @Bean
     public Unmarshaller unmarshaller() {
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-        jaxb2Marshaller.setContextPath("vol1.jhcode.ch7.user.sqlservice.jaxb");
+        jaxb2Marshaller.setContextPath("main.vol1_chlee.ch7.lch.sqlservice.jaxb");
         return jaxb2Marshaller;
     }
 
@@ -47,7 +47,8 @@ public class SqlServiceContext {
         return new EmbeddedDatabaseBuilder()
                 .setName("embeddedDatabase")
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("classpath:vol1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
+                .addScript("file:E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
                 .build();
     }
+
 }

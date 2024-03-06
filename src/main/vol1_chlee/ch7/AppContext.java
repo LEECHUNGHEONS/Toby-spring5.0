@@ -3,13 +3,14 @@ package main.vol1_chlee.ch7;
 import main.vol1_chlee.ch7.lch.dao.UserDao;
 import main.vol1_chlee.ch7.lch.service.DummyMailSender;
 import main.vol1_chlee.ch7.lch.service.UserService;
-
 import main.vol1_chlee.ch7.lch.service.UserServiceTest;
+
 import org.mariadb.jdbc.Driver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -38,9 +39,11 @@ public class AppContext implements SqlMapConfig{
 
 	@Override
 	public Resource getSqlMapResource() {
-		return new ClassPathResource("sqlmap.xml", UserDao.class);
+		// 절대 경로
+		String filePath = "E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/lch/dao/sqlmap.xml";
+		return new FileSystemResource(filePath);
 	}
-	
+
 	@Bean
 	public DataSource dataSource() {
 		SimpleDriverDataSource ds = new SimpleDriverDataSource();
@@ -75,6 +78,7 @@ public class AppContext implements SqlMapConfig{
 		@Bean
 		public UserService testUserService() {
 			return new UserServiceTest.TestUserService();
+
 		}
 		
 		@Bean

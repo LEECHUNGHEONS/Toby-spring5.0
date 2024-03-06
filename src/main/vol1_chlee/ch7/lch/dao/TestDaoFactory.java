@@ -5,6 +5,7 @@ import main.vol1_chlee.ch7.lch.sqlservice.updatable.EmbeddedDbSqlRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -40,12 +41,12 @@ public class TestDaoFactory {
 	@Bean
 	public OxmSqlService sqlService() {
 		OxmSqlService oxmSqlService = new OxmSqlService();
-		oxmSqlService.setSqlmap(new ClassPathResource
-				("/main/vol1_chlee/ch7/lch/dao/sqlmap.xml", UserDao.class));
+		oxmSqlService.setSqlmap(new ClassPathResource("/vol1_chlee/ch7/lch/dao/sqlmap.xml", UserDao.class));
 		oxmSqlService.setUnmarshaller(unmarshaller());
 		oxmSqlService.setSqlRegistry(sqlRegistry());
 		return oxmSqlService;
 	}
+
 
 	@Bean
 	public Jaxb2Marshaller unmarshaller() {
@@ -64,13 +65,14 @@ public class TestDaoFactory {
 	@Bean
 	public DataSource embeddedDatabase() {
 		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-		databasePopulator.addScript(new ClassPathResource("/main/vol1_lch/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql"));
+		databasePopulator.addScript(new ClassPathResource("file:E:/development2/Toby-spring5.0/src/main/vo1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql"));
 
 		return new EmbeddedDatabaseBuilder()
 				.setType(EmbeddedDatabaseType.H2)
 				.setName("embeddedDatabase")
 				.setScriptEncoding("UTF-8")
-				.addScript("classpath:/main/vol1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
+				// 절대 경로 사용
+				.addScript("file:E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
 				.build();
 	}
 

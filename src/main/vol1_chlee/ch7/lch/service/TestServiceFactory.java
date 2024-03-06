@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -25,7 +26,7 @@ public class TestServiceFactory {
 	@Bean
 	public DataSource dataSource() {
 		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-		String url = "jdbc:mariadb://localhost:3306/testdb?characterEncoding=UTF-8";
+		String url = "jdbc:mariadb://localhost:3307/toby_study?characterEncoding=UTF-8";
 		String username = "root";
 		String password = "1234";
 		
@@ -35,7 +36,7 @@ public class TestServiceFactory {
 		dataSource.setPassword(password);
 		return dataSource;
 	}
-	//== aop ==//
+	//aop
 	@Bean
 	public DataSourceTransactionManager transactionManager() {
 		DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
@@ -43,17 +44,19 @@ public class TestServiceFactory {
 		return dataSourceTransactionManager;
 	}
 	
-	//== sqlSerivce ==//
+	//sqlSerivce
 	@Bean
 	public OxmSqlService sqlService() {
 		OxmSqlService oxmSqlService = new OxmSqlService();
-		oxmSqlService.setSqlmap(new ClassPathResource
-				("/vol1/jhcode/ch7/user/dao/sqlmap.xml", UserDao.class));
+		oxmSqlService.setSqlmap(new ClassPathResource("/vol1_chlee/ch7/lch/dao/sqlmap.xml", UserDao.class));
 		oxmSqlService.setUnmarshaller(unmarshaller());
 		oxmSqlService.setSqlRegistry(sqlRegistry());
 		return oxmSqlService;
 	}
-	
+
+
+
+
 	@Bean
 	public EmbeddedDbSqlRegistry sqlRegistry() {
 		EmbeddedDbSqlRegistry embeddedDbSqlRegistry = new EmbeddedDbSqlRegistry();
@@ -64,20 +67,21 @@ public class TestServiceFactory {
 	@Bean
     public DataSource embeddedDatabase() {
         ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-        databasePopulator.addScript(new ClassPathResource("vol1/jhcode/ch7/user/sqlservice/updatable/sqlRegistrySchema.sql"));
+		databasePopulator.addScript(new ClassPathResource("file:E:/development2/Toby-spring5.0/src/main/vo1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql"));
 
-        return new EmbeddedDatabaseBuilder()
+
+		return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .setName("embeddedDatabase")
                 .setScriptEncoding("UTF-8")
-                .addScript("classpath:vol1/jhcode/ch7/user/sqlservice/updatable/sqlRegistrySchema.sql")
+                .addScript("file:E:/development2/Toby-spring5.0/src/main/vo1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
                 .build();
     }
 	
 	@Bean
 	public Jaxb2Marshaller unmarshaller() {
 		Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-		jaxb2Marshaller.setContextPath("vol1.jhcode.ch7.user.sqlservice.jaxb");
+		jaxb2Marshaller.setContextPath("main.vol1_chlee.ch7.lch.sqlservice.jaxb");
 		return jaxb2Marshaller;
 	}
 	
