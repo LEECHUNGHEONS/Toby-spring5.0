@@ -16,7 +16,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.sql.DataSource;
-import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {AppContext.class})
 @ActiveProfiles("test")
-public class UserDaoTest {
+public class UserDaoJdbcTest {
 
 	@Autowired UserDao dao; 
 	@Autowired DataSource dataSource;
@@ -131,15 +130,18 @@ public class UserDaoTest {
 		assertEquals(user1.getLogin(), user2.getLogin());
 		assertEquals(user1.getRecommend(), user2.getRecommend());
 	}
-	
+
 	@Test
-	public void duplciateKey() throws SQLException {
+	public void duplicateKey() throws SQLException {
 		dao.deleteAll();
-		
+
 		dao.add(user1);
+
+		// 중복 키 예외 발생 여부 확인
 		assertThrows(DuplicateKeyException.class, () -> dao.add(user1));
 	}
-	
+
+
 	@Test
 	public void sqlExceptionTranslate() {
 		dao.deleteAll();
