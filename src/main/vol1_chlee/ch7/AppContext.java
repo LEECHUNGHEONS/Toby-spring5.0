@@ -26,7 +26,7 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = "main.vol1_chlee.ch7.lch")
 @EnableSqlService
 @PropertySource("file:E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/database.properties")
-//위의 주소는 절대경로 자기 본인 프로퍼티즈 위치 경로 적어 주셔야함.
+//위의 주소는 절대경로 자기 본인 프로퍼티즈 위치 경로 적어 주셔야함. 상대경로인 classpath로 가능함.
 public class AppContext implements SqlMapConfig{
 	@Value("${db.driverClass}") Class<? extends Driver> driverClass;
 	@Value("${db.url}") String url;
