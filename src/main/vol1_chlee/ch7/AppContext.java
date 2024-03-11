@@ -40,7 +40,7 @@ public class AppContext implements SqlMapConfig{
 
 	@Override
 	public Resource getSqlMapResource() {
-		// 절대 경로
+		// 절대 경로 ,밑에 경로도 본인 git 받은 절대경로 자기 pc 절대 디렉토리로 바꿔주셔야 함.
 		String filePath = "E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/lch/dao/sqlmap.xml";
 		return new FileSystemResource(filePath);
 	}
