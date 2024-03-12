@@ -46,7 +46,7 @@ public class SqlServiceContext {
     public DataSource embeddedDatabase() {
         return new EmbeddedDatabaseBuilder()
                 .setName("embeddedDatabase")
-                .setType(EmbeddedDatabaseType.H2) // 아래 주소도 절대경로로 바꿔주셔야함
+                .setType(EmbeddedDatabaseType.H2) // 아래 주소도 절대경로로 바꿔주셔야함 , 클래스 패스도 가능함
                 .addScript("file:E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
                 .build();
     }
