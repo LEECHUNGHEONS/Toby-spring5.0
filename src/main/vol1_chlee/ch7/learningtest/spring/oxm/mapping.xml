@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN" "http://castor.org/mapping.dtd">
 <mapping>
-    <class name="com.intheeast.springframe.sqlservice.jaxb.Sqlmap">
+    <class name="main.vol1_chlee.ch7.lch.sqlservice.jaxb.Sqlmap">
         <map-to xml="sqlmap" />
         <field name="sql"
                type="springbook.user.sqlservice.jaxb.SqlType"
@@ -9,7 +9,7 @@
             <bind-xml name="sql" node="element" />
         </field>
     </class>
-    <class name="com.intheeast.springframe.sqlservice.jaxb.SqlType">
+    <class name="main.vol1_chlee.ch7.lch.sqlservice.jaxb.SqlType">
         <map-to xml="sql" />
         <field name="key" type="string" required="true">
             <bind-xml name="key" node="attribute" />
