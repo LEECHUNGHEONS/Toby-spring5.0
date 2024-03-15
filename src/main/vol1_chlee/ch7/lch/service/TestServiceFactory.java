@@ -66,7 +66,7 @@ public class TestServiceFactory {
 	
 	@Bean
     public DataSource embeddedDatabase() {
-        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+        ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator(); 	// 밑에 경로도 본인 절대경로로 변경.
 		databasePopulator.addScript(new ClassPathResource("file:E:/development2/Toby-spring5.0/src/main/vo1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql"));
 
 
