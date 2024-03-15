@@ -71,7 +71,7 @@ public class TestDaoFactory {
 				.setType(EmbeddedDatabaseType.H2)
 				.setName("embeddedDatabase")
 				.setScriptEncoding("UTF-8")
-				// 절대 경로 사용
+				// 실제 파일 있는 본인의 절대 경로로 변경.
 				.addScript("file:E:/development2/Toby-spring5.0/src/main/vol1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
 				.build();
 	}
