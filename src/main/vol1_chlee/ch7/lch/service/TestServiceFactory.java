@@ -73,7 +73,7 @@ public class TestServiceFactory {
 		return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .setName("embeddedDatabase")
-                .setScriptEncoding("UTF-8")
+                .setScriptEncoding("UTF-8") 		// 밑에 경로 본인만의 절대 경로로 변경.
                 .addScript("file:E:/development2/Toby-spring5.0/src/main/vo1_chlee/ch7/lch/sqlservice/updatable/sqlRegistrySchema.sql")
                 .build();
     }
