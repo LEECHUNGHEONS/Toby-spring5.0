@@ -29,7 +29,8 @@ public class TestServiceFactory {
 		String url = "jdbc:mariadb://localhost:3307/toby_study?characterEncoding=UTF-8";
 		String username = "root";
 		String password = "1234";
-		
+
+		//MariaDb 사용
 		dataSource.setDriverClass(org.mariadb.jdbc.Driver.class);
 		dataSource.setUrl(url);
 		dataSource.setUsername(username);
