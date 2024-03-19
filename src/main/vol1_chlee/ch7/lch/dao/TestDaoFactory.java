@@ -21,7 +21,7 @@ public class TestDaoFactory {
 	public DataSource dataSource() {
 		
 		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-		
+		// 마리아db 사용
 		dataSource.setDriverClass(org.mariadb.jdbc.Driver.class);
 		dataSource.setUrl("jdbc:mariadb://localhost:3307/toby_study?characterEncoding=UTF-8");
 		dataSource.setUsername("root");
