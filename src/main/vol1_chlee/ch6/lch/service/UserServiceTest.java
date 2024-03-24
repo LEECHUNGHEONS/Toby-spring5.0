@@ -262,7 +262,7 @@ public class UserServiceTest {
         String host = "smtp.gmail.com";
         int port = 587;
         String username = "yy8775799@gmail.com";
-        String password = "fryo rhef XXXX XXXX"; // 본인만의 구글계정 보안으로 변경-> 2단계 인증에서 앱 비밀번호
+        String password = "fryo rhef XXXX XXXX"; // 본인만의 구글계정 보안으로 변경법-> 2단계 인증에서 앱 비밀번호
 
         // 수진자 이메일 주소
         String toAddress = "yy8775799@gmail.com";
