@@ -193,7 +193,7 @@ public class UserServiceTest {
         String host = "smtp.gmail.com";
         int port = 587;
         String username = "yy8775799@gmail.com";
-        String password = "fryo rhef xxxx xxxx"; // 본인만의 구글 지메일 smtp 비밀번호 설정
+        String password = "fryo rhef xxxx xxxx"; // 본인만의 구글 지메일 smtp 비밀번호으로 설정해야 함
 
         // 수진자 이메일 주소
         String toAddress = "yy8775799@gmail.com";
